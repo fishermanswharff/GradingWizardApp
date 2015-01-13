@@ -13,6 +13,8 @@
       <ul ng-if="repo.pull_requests_count != null">
         <li ng-repeat="build in repo.pull_requests">
           <h4><a href="{{build.build_url}}">{{build.committer_name}}: {{build.commit_message}}</a></h4>
+          <p ng-bind-html="build.build_status | isPassing"></p>
+          <p ng-bind-html="build.status_message"></p>
         </li>
       </ul>
     </div>
