@@ -3,10 +3,14 @@
     <img src="http://i.imgur.com/ke8USTq.png" alt="GA bitches">
     <h1>All of GA's Repos</h1>
   </header>
-
   <div class="repos">
     <div class="repo" ng-repeat="repo in repos">
-      <h4>{{repo.name}}</h4>
+      <h1><a href="{{repo.url}}">{{repo.name}}</a></h1>
+      <ul ng-if="repo.pull_requests_count != null">
+        <li ng-repeat="build in repo.pull_requests">
+          <h4><a href="{{build.build_url}}">{{build.committer_name}}: {{build.commit_message}}</a></h4>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
