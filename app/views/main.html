@@ -1,5 +1,5 @@
-<section>
-  <header>
+<section class='main-view'>
+  <header class='main-view-header'>
     <img src="http://i.imgur.com/ke8USTq.png" alt="GA bitches">
     <h1>All of GA's Repos</h1>
     <div class="form-group">
@@ -10,11 +10,12 @@
   <div class="repos">
     <div class="repo" ng-repeat="repo in repos | filter:search">
       <h1><a href="{{repo.url}}">{{repo.name}}</a></h1>
+      <p class='pr-count' ng-if="repo.pull_requests_count != null"><small># of Travis Builds: {{repo.pull_requests_count}}</small></p>
       <ul ng-if="repo.pull_requests_count != null">
         <li ng-repeat="build in repo.pull_requests">
-          <h4><a href="{{build.build_url}}">{{build.committer_name}}: {{build.commit_message}}</a></h4>
-          <p ng-bind-html="build.build_status | isPassing"></p>
-          <p ng-bind-html="build.status_message"></p>
+          <h4 style="display:inline-block"><a href="{{build.build_url}}">{{build.committer_name}}: {{build.commit_message}}</a></h4>
+          <p style="display:inline-block;" ng-bind-html="build.build_status | isPassing"></p>
+          <p style="display:inline-block;" ng-bind-html="build.status_message"></p>
         </li>
       </ul>
     </div>

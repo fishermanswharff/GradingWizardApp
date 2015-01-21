@@ -1,0 +1,13 @@
+section.main-view {
+  header.main-view-header {}
+  div.repos {
+    div.repo {
+      h1 {
+        display: inline-block;
+      }
+      p.pr-count {
+        // display: inline-block;
+      }
+    }
+  }
+}
